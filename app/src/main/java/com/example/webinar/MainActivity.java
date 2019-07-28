@@ -1,5 +1,6 @@
 package com.example.webinar;
 
+import android.content.Intent;
 import android.os.ConditionVariable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
                     int var3 = var1 + var2;
 
                     tvResult.setText(String.valueOf(var3));
+
+                    //Go to Second Activity
+
+                    Intent i = new Intent(MainActivity.this,SecondActivity.class);
+                    i.putExtra("result", var3);
+                    startActivity(i);
                 }
             });
 
