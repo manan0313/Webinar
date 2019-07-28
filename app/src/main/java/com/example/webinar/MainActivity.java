@@ -59,7 +59,14 @@ public class MainActivity extends AppCompatActivity {
                     Uri uri = Uri.parse(url);
 
                     Intent i = new Intent(Intent.ACTION_VIEW,uri);
-                    startActivity(i);
+                    try {
+                        startActivity(i);
+                    }catch(ActivityNotFoundException anfe){
+                        Log.e(TAG, "Could not open the activity with the given URL",anfe );
+                        Toast.makeText(MainActivity.this,
+                                "Could not find any app to open this link",
+                                Toast.LENGTH_SHORT).show();
+                    }
 
                 }
             });
